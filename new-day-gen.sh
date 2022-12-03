@@ -14,6 +14,8 @@ main = do
 
 cabal_day="executable ${d}
   main-is: ${d}.hs
+  hs-source-dirs:
+      solutions
   import: deps
 
 "
