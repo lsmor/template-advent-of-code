@@ -36,9 +36,3 @@ common deps
       solutions
   default-language: Haskell2010
 
-
-executable day-1
-  import: deps
-  main-is: day-1.hs
-
-
