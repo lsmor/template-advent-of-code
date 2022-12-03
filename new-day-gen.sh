@@ -19,6 +19,7 @@ cabal_day="executable ${d}
 "
 
 mkdir -p inputs
+mkdir -p solutions
 
 echo "$module_header" > ./solutions/${d}.hs
 touch ./inputs/${d}.example
