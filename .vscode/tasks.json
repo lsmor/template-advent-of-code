@@ -9,19 +9,70 @@
             "command": "cabal",
             "args": [
                 "run",
-                "day-${input:RunDay}",
+                "day-${input:Day}",
                 "--",
                 "${input:Part}",
-                "./inputs/day-${input:RunDay}.${input:InputFile}"
+                "./inputs/day-${input:Day}.${input:InputFile}"
             ],
             "group": "none",
             "problemMatcher": []
+        },
+        { 
+            "label": "build proyect",
+            "type":"process",
+            "command": "cabal",
+            "args": ["build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        { 
+            "label": "create new day template",
+            "type":"process",
+            "command": "./new-day-gen.sh",
+            "args": ["${input:Day}"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ],
     "inputs": [
         {
-            "id": "RunDay",
-            "type": "promptString",
+            "id": "Day",
+            "type": "pickString",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25"
+            ],
             "description": "which day you want to run?",
         },
         {
