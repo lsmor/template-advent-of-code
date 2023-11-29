@@ -40,7 +40,7 @@ To get started with Advent of Code in Haskell using this template:
 
 After following these steps, you'll find newly created folders named `solutions` and `inputs` in your project directory. Files `input/day-x.input` should contain your personal AoC input and `input/day-x.example` should be empty. You can copy paste the public example given by AoC in those `.example` files
 
-## Usage
+## CLI Usage
 
 Here's how to use the CLI for common tasks:
 
@@ -56,7 +56,7 @@ Here's how to use the CLI for common tasks:
   ./aoc-hs.sh run -d <day> -p <part> [-f <file-name> | --example | -e | --input | -i]
   ```
 
-For more details on using the CLI run `./aoc-hs.sh --help`
+For more details on using the CLI run `./aoc-hs.sh --help`. Also, every CLI option is available via VSCode tasks. 
 
 ## Haskell details
 
@@ -71,8 +71,9 @@ Each day is built as an executable. Each executable depends on these libraries
 - [split](https://hackage.haskell.org/package/split): algorithms to split lists
 - [search-algorithms](https://hackage.haskell.org/package/search-algorithms): a blessed interface to bfs, dfs, dijkstra, etc...
 - [mtl](https://hackage.haskell.org/package/mtl): Just in case you need the state monad
+- [pointedlist](https://hackage.haskell.org/package/pointedlist): because AoC loves circual arrays. 
 
-The dependencies are chosen to match a typical AoC season. 
+The dependencies are chosen to match a typical AoC season.
 
 ## Contributing
 
