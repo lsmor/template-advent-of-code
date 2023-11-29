@@ -1,9 +1,10 @@
 # Advent of Code for Haskell
 
-This repository is a GitHub template for Advent of Code solutions in Haskell. It provides a simple CLI tool and VSCode tasks to streamline your Advent of Code experience in Haskell.
+This repository is a GitHub template for Advent of Code solutions in Haskell. It provides a simple CLI tool and VSCode tasks to streamline your Advent of Code experience in Haskell, without the need to learn `cabal` and with a sensible set of packages.
 
 ## Features
 
+- A sensible set of dependencies for AoC.
 - A bash command-line interface (CLI) that allows you to:
   - Create Haskell files for each new Advent of Code day.
   - Run solutions for each day with ease.
@@ -35,7 +36,9 @@ To get started with Advent of Code in Haskell using this template:
    - Via the CLI: Run `./aoc-hs.sh new -d 1` (you may need to run `chmod +x aoc-hs.sh` before this).
    - Via VSCode tasks: Press `CTRL+Shift+P`, type "Run Task," and select "create new day template." Follow the instructions.
 
-After following these steps, you'll find newly created folders named `solutions` and `inputs` in your project directory. Files `input/day-x.input` should contain your AoC input and `input/day-x.example` should be empty. You can copy paste the public example given by AoC in those `.example` files
+6. Start Coding. Probably you have to wait a little bit for `HLS` to download and build some dependencies the first time you open the project.
+
+After following these steps, you'll find newly created folders named `solutions` and `inputs` in your project directory. Files `input/day-x.input` should contain your personal AoC input and `input/day-x.example` should be empty. You can copy paste the public example given by AoC in those `.example` files
 
 ## Usage
 
