@@ -26,7 +26,7 @@ To get started with Advent of Code in Haskell using this template:
    cd your-new-project
    ```
 
-4. Optionally, create an `.env` file with your Advent of Code session cookie. If you're unsure how to obtain the cookie, check [this guide](https://github.com/wimglenn/advent-of-code-wim/issues/1).
+4. Optionally, create an `.env` file with your Advent of Code session cookie. If you're unsure how to obtain the cookie, check [this guide](https://github.com/wimglenn/advent-of-code-wim/issues/1). If you don't create an `.env` file you'll be prompted to provided the cookie.
 
     ```env
     AOC_SESSION=your-cookie-here
@@ -36,9 +36,9 @@ To get started with Advent of Code in Haskell using this template:
    - Via the CLI: Run `./aoc-hs.sh new -d 1` (you may need to run `chmod +x aoc-hs.sh` before this).
    - Via VSCode tasks: Press `CTRL+Shift+P`, type "Run Task," and select "create new day template." Follow the instructions.
 
-6. Start Coding. Probably you have to wait a little bit for `HLS` to download and build some dependencies the first time you open the project.
-
 After following these steps, you'll find newly created folders named `solutions` and `inputs` in your project directory. Files `input/day-x.input` should contain your personal AoC input and `input/day-x.example` should be empty. You can copy paste the public example given by AoC in those `.example` files
+
+Start Coding. Probably you have to wait a little bit for `HLS` to download and build some dependencies the first time you open the project.
 
 ## CLI Usage
 
@@ -56,11 +56,11 @@ Here's how to use the CLI for common tasks:
   ./aoc-hs.sh run -d <day> -p <part> [-f <file-name> | --example | -e | --input | -i]
   ```
 
-For more details on using the CLI run `./aoc-hs.sh --help`. Also, every CLI option is available via VSCode tasks. 
+For more details on using the CLI run `./aoc-hs.sh --help`. Also, every CLI option is available via VSCode tasks.
 
 ## Haskell details
 
-Each day is built as an executable. Each executable depends on these libraries
+After running `./aoc-hs.sh new -d x`, you'll find files `day-x.hs` in the `solutions` folder. Such files should contain the haskell code for that day. Each day is built as an stand alone executable, so code isn't shared between two days. In practise, this is not a problem since it is rare that AoC days requiere code sharing. Each executable depends on these libraries:
 
 - [attoparsec](https://hackage.haskell.org/package/attoparsec): for parsing inputs
 - [base >=4.7 && <5](https://hackage.haskell.org/package/base): the base package
@@ -71,7 +71,7 @@ Each day is built as an executable. Each executable depends on these libraries
 - [split](https://hackage.haskell.org/package/split): algorithms to split lists
 - [search-algorithms](https://hackage.haskell.org/package/search-algorithms): a blessed interface to bfs, dfs, dijkstra, etc...
 - [mtl](https://hackage.haskell.org/package/mtl): Just in case you need the state monad
-- [pointedlist](https://hackage.haskell.org/package/pointedlist): because AoC loves circual arrays. 
+- [pointedlist](https://hackage.haskell.org/package/pointedlist): because AoC loves circual arrays.
 
 The dependencies are chosen to match a typical AoC season.
 

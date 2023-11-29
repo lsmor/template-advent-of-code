@@ -1,6 +1,6 @@
 #!/bin/bash
 
-YEAR=2022
+YEAR=2023
 AOC_BASE_URL="https://adventofcode.com/$YEAR/"
 
 # Function to create a new Advent of Code solution for a given day
@@ -41,7 +41,8 @@ type Input    = B.ByteString  -- default to Bytestring, but very likely you'll n
 type Solution = Int
 
 -- | parser transforms a raw bytestring (from your ./input/day-X.input) to your Input type. 
---   this is intended to use attoparsec for such a transformation.
+--   this is intended to use attoparsec for such a transformation. You can use Prelude's 
+--   String if it fit better for the problem
 parser :: B.ByteString -> Input
 parser = undefined
 
@@ -59,7 +60,7 @@ main = do
   -- example: cabal run -- day-3 2 \"./input/day-3.example\"
   -- will run part two of day three with input file ./input/day-3.example
   [part, filepath] <- getArgs
-  input <- parser <$> B.readFile filepath
+  input <- parser <$> B.readFile filepath -- use parser <$> readFile filepath if String is better
   if read @Int part == 1
     then do
       print \"solution to problem 1 is:\"
