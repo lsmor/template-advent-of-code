@@ -6,13 +6,14 @@
         {
             "label": "run day",
             "type": "process",
-            "command": "cabal",
+            "command": "./aoc-hs.sh",
             "args": [
                 "run",
-                "day-${input:Day}",
-                "--",
+                "-d",
+                "${input:Day}",
+                "-p",
                 "${input:Part}",
-                "./inputs/day-${input:Day}.${input:InputFile}"
+                "--${input:InputFile}"
             ],
             "group": "none",
             "problemMatcher": []
@@ -21,7 +22,7 @@
             "label": "build proyect",
             "type":"process",
             "command": "cabal",
-            "args": ["build"],
+            "args": ["build", "all"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -30,12 +31,8 @@
         { 
             "label": "create new day template",
             "type":"process",
-            "command": "./new-day-gen.sh",
-            "args": ["${input:Day}"],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "command": "./aoc-hs.sh",
+            "args": ["new", "-d", "${input:Day}"]
         }
     ],
     "inputs": [
