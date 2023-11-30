@@ -15,12 +15,6 @@ create_new_solution() {
 
   fi
 
-  # Ensure that the AOC_SESSION cookie is set
-  if [ -z "$AOC_SESSION" ]; then
-    echo "AOC_SESSION is not set. Please provide your Advent of Code session cookie:"
-    read -r AOC_SESSION
-  fi
-
   # Create a directory for the day
   mkdir -p inputs
   mkdir -p solutions
@@ -63,10 +57,10 @@ main = do
   input <- parser <$> B.readFile filepath -- use parser <$> readFile filepath if String is better
   if read @Int part == 1
     then do
-      print \"solution to problem 1 is:\"
+      putStrLn \"solution to problem 1 is:\"
       print $ solve1 input
     else do
-      print \"solution to problem 2 is:\"
+      putStrLn \"solution to problem 2 is:\"
       print $ solve2 input
 "
   echo Creating files...
@@ -77,14 +71,23 @@ main = do
   touch "./inputs/$d.example"
 
   # Download the input data from Advent of Code
-  curl -o "./inputs/$d.input" -b "session=${AOC_SESSION}" "$AOC_BASE_URL"day/"$number"/input
+  if [ "$download" == true ]; then
+
+    # Ensure that the AOC_SESSION cookie is set
+    if [ -z "$AOC_SESSION" ]; then
+      echo "AOC_SESSION is not set. Please provide your Advent of Code session cookie:"
+      read -r AOC_SESSION
+    fi
+
+    curl -o "./inputs/$d.input" -b "session=${AOC_SESSION}" "$AOC_BASE_URL"day/"$number"/input
+  else
+    touch "./inputs/$d.input"
+  fi
 
   # Append the day to the advent-of-code.cabal file
   cabal_day="executable ${d}
   import: deps
   main-is: ${d}.hs
-  hs-source-dirs:
-      solutions
 "
   echo "$cabal_day" >> advent-of-code.cabal
 
@@ -163,7 +166,17 @@ if [ "$subcommand" == "new" ]; then
     echo "Missing day for 'new' command."
     exit 1
   fi
-  
+
+  if [ -z "$run_command" ]; then
+    download=true
+  fi
+
+  case "$run_command" in
+    no-curl)
+      download=false
+      ;;
+  esac
+
   create_new_solution "$number"
 
 elif [ "$subcommand" == "run" ]; then
@@ -197,7 +210,7 @@ elif [ "$subcommand" == "run" ]; then
   run_solution "$number" "$part" "$run_filename"
 
 else
-  echo "Usage: aoc-hs [new -d <day> | run -d <day> -p <part> [-f <file-name> | --example | -e | --input | -i]]
+  echo "Usage: aoc-hs [new -d <day> [--no-curl] | run -d <day> -p <part> [-f <file-name> | --example | -e | --input | -i]]
 
 Description:
   This tool simplifies Advent of Code solutions in Haskell by creating templates and handling input files. No need to learn Cabal!
@@ -208,8 +221,10 @@ Create a new Advent of Code solution for the specified day. It creates a main mo
 
 Usage: aoc-hs new -d <day>
 Example: aoc-hs new -d 3
+         aoc-hs new -d 3 --no-curl
 Options:
   -d <day>       Specify the day for the Advent of Code puzzle (1-25).
+  --no-curl      It wont download your personal AoC input file. You don't have you provide a cookie with this option
 
 Subcommand: run
 

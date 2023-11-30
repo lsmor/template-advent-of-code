@@ -6,7 +6,7 @@
         {
             "label": "run day",
             "type": "process",
-            "command": "./aoc-hs.sh",
+            "command": "./aoc-hs",
             "args": [
                 "run",
                 "-d",
@@ -35,7 +35,7 @@
         {
             "label": "create new day template",
             "type": "process",
-            "command": "./aoc-hs.sh",
+            "command": "./aoc-hs",
             "args": [
                 "new",
                 "-d",
