@@ -18,21 +18,30 @@
             "group": "none",
             "problemMatcher": []
         },
-        { 
+        {
             "label": "build proyect",
-            "type":"process",
+            "type": "process",
             "command": "cabal",
-            "args": ["build", "all"],
+            "args": [
+                "build",
+                "all"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
-        { 
+        {
             "label": "create new day template",
-            "type":"process",
+            "type": "process",
             "command": "./aoc-hs.sh",
-            "args": ["new", "-d", "${input:Day}"]
+            "args": [
+                "new",
+                "-d",
+                "${input:Day}"
+            ],
+            "problemMatcher": []
         }
     ],
     "inputs": [
