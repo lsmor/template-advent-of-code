@@ -108,8 +108,11 @@ After running `./aoc-hs new -d x`, you'll find files `day-x.hs` in the `solution
 - [search-algorithms](https://hackage.haskell.org/package/search-algorithms): a blessed interface to bfs, dfs, dijkstra, etc...
 - [mtl](https://hackage.haskell.org/package/mtl): Just in case you need the state monad
 - [pointedlist](https://hackage.haskell.org/package/pointedlist): because AoC loves circual arrays.
+- [bytestring-trie](https://hackage.haskell.org/package/bytestring-trie-0.2.7.2) bytestring based Trie for searching string problems.
 
-The dependencies are chosen to match a typical AoC season.
+The dependencies are chosen to match a typical AoC season. 
+
+With Respect to `hls`, there is an explicit `hie.yaml` because for some reason `hie-bios` doesn't detect that executables are in solutions folder.
 
 ## Contributing
 

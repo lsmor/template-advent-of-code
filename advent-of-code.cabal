@@ -35,6 +35,7 @@ common deps
     , search-algorithms
     , mtl
     , pointedlist
+    , bytestring-trie
   other-modules:
       Paths_advent_of_code
   ghc-options:
