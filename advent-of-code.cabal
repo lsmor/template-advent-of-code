@@ -40,8 +40,6 @@ common deps
       Paths_advent_of_code
   ghc-options:
     -Wall
-  hs-source-dirs:
-      solutions
   default-language: Haskell2010
 
 -- Do not touch after this line. aoc-hs will edit it

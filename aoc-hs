@@ -87,6 +87,8 @@ main = do
   # Append the day to the advent-of-code.cabal file
   cabal_day="executable ${d}
   import: deps
+  hs-source-dirs:
+      solutions
   main-is: ${d}.hs
 "
   echo "$cabal_day" >> advent-of-code.cabal

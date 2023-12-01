@@ -112,7 +112,7 @@ After running `./aoc-hs new -d x`, you'll find files `day-x.hs` in the `solution
 
 The dependencies are chosen to match a typical AoC season. 
 
-With Respect to `hls`, there is an explicit `hie.yaml` because for some reason `hie-bios` doesn't detect that executables are in solutions folder.
+With Respect to `hls`, there is an explicit `hie.yaml` just in case. I've had problems in the past with [`common` stanzas](https://github.com/Avi-D-coder/implicit-hie/issues/1).
 
 ## Contributing
 
